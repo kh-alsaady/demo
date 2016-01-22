@@ -1,0 +1,39 @@
+<table class='table table-condensed table-responsive'>
+    <tr>
+      <th>Course Category</th>
+      <th>Title</th>
+      <th>Download_link</th>
+      <th>Completed</th>
+      <th>Taked At</th>
+      <th>Completed At</th>
+      <th>Created at</th>
+      <th>Notes</th>
+    </tr>
+  <% @courses.each do |course| %>  
+    <tr>
+      <td>
+        <%= course.category.name if course.category %>
+        <%= "None" if course.course_category_id == 0 || course.course_category_id == nil %>        
+      </td>      
+      <td><%= course.title %></td>
+      <td><%= course.download_link %></td>
+      <td><%= course.completed ? "YES" : "NO" %></td>
+      <td><%= course.taked_at.strftime("%d %B %Y") %></td>
+      <td><%= course.completed_at.strftime("%d %B %Y") %></td>
+      <td><%= course.created_at.strftime("%d %B %Y") %></td>
+      <td><div id='notes'><%= course.notes %></div></td>
+      <td>
+        <div id='actions'>
+            <%= link_to "Preview", course_path(course), class: 'btn btn-info btn-xs', data: {toggle: 'modal', target: '.bs-example-modal-lg',remote: true} if controller_name != 'Admin' && action_name != 'search' %>
+            <%= link_to "Edit", edit_course_path(course), class: 'btn btn-success btn-xs', data: {toggle: 'modal', target: '.bs-example-modal-lg',remote: true} if controller_name != 'Admin' && action_name != 'search' %>
+            <%= link_to "Destroy", course_path(course), class: 'btn btn-danger btn-xs', method: :delete, data: {confirm: "Are you sure ?", remote: true} if controller_name != 'Admin' && action_name != 'search' %>
+        </div>        
+      </td>
+    </tr>    
+  <% end %>
+</table>
+
+
+
+
+

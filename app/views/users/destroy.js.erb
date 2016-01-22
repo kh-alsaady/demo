@@ -1,0 +1,7 @@
+<% if @users.any? %>
+    $('#users').html("<%= j render partial: 'users' %>");
+<% else %>
+    $('#users').html("No users available.");  
+<% end %>
+
+$("#notice").html("<h3>User was successfully destroyed.</h3>").slideDown().delay(3500).slideUp();

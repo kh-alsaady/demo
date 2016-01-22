@@ -1,0 +1,16 @@
+<h2>My Profile</h2>
+<br/><br/>
+
+<div clss='row'>
+  <div class='col col-lg-2 col-md-2 col-xs-2'>
+    <%= image_tag '',size: '150x150', alt: 'Image Not found' %><br /><br />    
+    <%= link_to "Change Image", "", class: 'btn btn-primary' %>
+  </div>
+  
+  <div class=' col col-lg-10 col-md-10 col-xs-10'>    
+    <div id='user-details'>              
+      <%= render 'form' %>      
+    </div>
+  </div>   
+</div>
+  

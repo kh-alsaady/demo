@@ -1,0 +1,38 @@
+<!-- needs @users -->
+<table class='table table-condensed table-responsive'>
+    <tr>
+      <th></th>
+      <th>User Role</th>
+      <th>Username</th>
+      <th>Name</th>
+      <th>Display Name</th>
+      <th>Birthdate</th>
+      <th>Description</th>
+      <th>Image</th>      
+      <th>Created at</th>
+    </tr>
+  <% @users.each do |user| %>  
+    <tr>
+      <td><%= check_box_tag "user_ids_checked[]", user.id %></td>      
+      <td><%= user.role.name if user.role %></td>      
+      <td><%= user.username %></td>
+      <td><%= user.name %></td>
+      <td><%= user.display_name %></td>
+      <td><%= user.birthdate.strftime("%d %B %Y") if user.birthdate %></td>
+      <td><%= user.description %></td>
+      <td><%= user.image %></td>
+      <td><%= user.created_at.strftime("%d %B %Y") %></td>      
+      <td>
+        <div id='actions'>
+            <%= link_to "Preview", user_path(user), class: 'btn btn-info btn-xs', data: {toggle: 'modal', target: '.bs-example-modal-lg',remote: true} %>            
+            <%= link_to "Destroy", user_path(user), class: 'btn btn-danger btn-xs', method: :delete, data: {confirm: "Are you sure ?", remote: true} %>
+        </div>        
+      </td>
+    </tr>    
+  <% end %>
+</table>
+
+
+
+
+

@@ -1,0 +1,12 @@
+<h1>My Books</h1>
+
+<div><b>Display </b><%= select_tag(:display, options_for_select([['All', 'all']] + @user_book_categories), class: "form-control display-select") %></div> <br />  
+
+<div id='result-display'>
+  <div id='books'><%= @books.any? ? render(partial: 'books') : "No Books Available." %></div>  
+</div>
+<br/><br/>
+
+<div><%= link_to "Create New Book", new_book_path, class: 'btn btn-primary', data: {toggle: 'modal', target: '.bs-example-modal-lg', remote: true} %></div>
+
+

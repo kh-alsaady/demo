@@ -1,0 +1,20 @@
+<!--Needs @account_results @results @course_results @book_results-->
+<h2>Search Results</h2>
+<h3><%= pluralize @results, "Result" %> Match Your Search</h3>
+<br/>
+<% unless @accounts.empty? %>
+  <h4>Accounts (<%= pluralize @accounts.count, "Result" %>)</h4>
+  <%= render partial: 'accounts/accounts' %>
+  <hr>
+<% end %>
+
+<% unless @courses.empty? %>
+  <h4>Courses (<%= pluralize @courses.count, "Result" %>)</h4>
+  <%= render partial: 'courses/courses' %>
+  <hr>
+<% end %>
+
+<% unless @books.empty? %>
+  <h4>Books (<%= pluralize @books.count, "Result" %>)</h4>
+  <%= render partial: 'books/books' %>
+<% end %>

@@ -1,0 +1,26 @@
+//for display select change processing
+<% if @books.any? %>
+    $("#books").html("<%= j render partial: 'books' %>"); 
+<% else %>
+    $("#books").html("<h3>No Books Match Your Selecting.</h3>"); 
+<% end %>
+
+//for update book typs when new book category added
+//$("#display").html("");
+//$("#display").append("<option value='all'>All</option>");
+//<% @book_categories.each do |book_cat| %>
+//    $("#display").append("<option value= <%= book_cat[1] %>" + "> <%= book_cat[0] %>" + "</option>");
+//<% end -%>
+
+//for update and create processing
+
+<% if $state == 'create' %>
+    $("#status").html("<h3>The Book Was Successfully Created</h3>");
+    // for create new book without close modal
+    $('.modal-body').html("<%= j render partial: 'form' %>");    
+<% elsif $state == 'update' %>
+    $("#status").html("<h3>The Book Was Successfully Updated</h3>");
+    $('.modal-title').html("Create Book");
+    $('.modal-body').html("<%= j render partial: 'form' %>");
+<% end %>
+$("#status").slideDown().delay(3500).slideUp();

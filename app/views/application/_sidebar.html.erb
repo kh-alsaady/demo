@@ -1,0 +1,15 @@
+<div id='accor-container'>
+  <h2>Manage Accounts</h2>
+  <div><%= content_for :user_accounts %></div>
+  
+  <h2>Manage Courses</h2>
+  <div><%= yield :user_courses %></div>
+  
+  <h2>Manage Books</h2>
+  <div><%= yield :user_books %></div>
+  
+  <% if admin? %>
+    <h2>Manage Users</h2>
+    <div><%= link_to('Manage Users'   , users_path)  %></div>
+  <% end %>
+</div>

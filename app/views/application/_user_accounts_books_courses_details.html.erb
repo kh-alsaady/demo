@@ -1,0 +1,32 @@
+<!-- Set User Courses categories displayed in nav bar-->
+<% content_for :user_courses do %>  
+  <% course_categories = current_user.courses.limit(5).map{ |course| course.category if course.category }.uniq.compact %>
+  
+  <li><%= link_to 'All Course', courses_path(display: 'all') %></li>
+  <% course_categories.each do |cat| %>
+    <li><%= link_to cat.name, courses_path(display: cat.id) %></li>  
+  <% end %>
+    
+<% end %>
+
+<!-- Set User Accounts Types displayed in nav bar-->
+<% content_for :user_accounts do %>  
+  <% account_types = current_user.accounts.limit(5).map{ |acc| acc.type if acc.type }.uniq.compact %>
+  
+  <li><%= link_to 'All Accounts', accounts_path(display: 'all')  %></li>
+  <% account_types.each do |type| %>
+    <li><%= link_to type.name, accounts_path(display: type.id)  %></li>  
+  <% end %>
+    
+<% end %>
+
+<!-- Set User Books categories displayed in nav bar-->
+<% content_for :user_books do %>  
+  <% course_categories = current_user.books.limit(5).map{ |course| course.category if course.category }.uniq.compact %>
+  
+  <li><%= link_to 'All Books', books_path(display: 'all')  %></li>
+  <% course_categories.each do |cat| %>
+    <li><%= link_to cat.name, books_path(display: cat.id)  %></li>  
+  <% end %>
+    
+<% end %>

@@ -1,0 +1,41 @@
+<%= error_message_for @book if @book.errors.any? %>
+
+<%= form_for @book, remote: true do |f| %>
+  <table class='table-condensed'>
+    <tr>
+      <th><%= f.label :title %></th>
+      <td> <%= f.text_field :title, size: 50, class: 'form-control' %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :course_category_id, "Book Category" %></th>
+      <td>
+        <%= f.select(:course_category_id, [["none", 0]] + @book_categories , {}, {class: "form-control"}) %> 
+        New <%= text_field_tag(:book_category, nil, size: 30, class: 'form-control') %>
+      </td>
+    </tr>  
+    <tr>
+      <th><%= f.label :completed %></th>
+      <td>
+        <%= f.radio_button :completed, false, {checked: true, size: 50} %> NO 
+        <%= f.radio_button :completed, true, {size: 50} %> YES         
+      </td>
+    </tr>
+    <tr>
+      <th><%= f.label :started_at %></th>
+      <td><%= f.date_select :started_at, {}, {class: 'form-control'} %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :finshed_at %></th>
+      <td><%= f.date_select :finshed_at, {}, {class: 'form-control'} %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :created_at %></th>
+      <td><%= f.date_select :created_at, {}, {class: 'form-control'} %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :notes %></th>
+      <td> <%= f.text_area :notes, size: '47x3', class: 'form-control' %></td>
+    </tr>    
+  </table>
+  <div id='form-submit'><%= f.submit(@book.id ? "Update Book" : "Create Book", {class: 'btn btn-primary'}) %></div>
+<% end %>

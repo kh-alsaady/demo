@@ -1,0 +1,27 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.users{
+    #frm-user-img{
+        width: 150px;
+        height: 150px;
+        margin: 10px auto;
+        //margin-bottom: 10px;    
+        border: 1px solid #000;
+    }
+    /*#user-img{margin: 10px  auto;}*/
+    #tbl-new-user{
+       // margin: 5px 5px 0px 5px;
+    }
+    #user-details{
+        //margin-top: 20px;
+    }
+    #edit-profile-link{float: right;}
+    #statistics{float: left;}
+    #frm-user-submit{
+        float: right;
+        min-width: 400px;
+        margin-top: 21px;
+        
+    }
+}

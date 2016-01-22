@@ -1,0 +1,60 @@
+// Place all the styles related to the Accounts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.accounts, .courses, .books, .users{
+   /* .year{
+        width: 90px;
+        display: inline;
+    }
+    .month{
+        width: 122px;
+        display: inline;
+    }
+    .day{
+        width: 68px;
+        display: inline;
+    }*/
+    
+    #account_created_at_1i, #course_created_at_1i, #course_taked_at_1i, #course_completed_at_1i, #book_started_at_1i, #book_finshed_at_1i, #book_created_at_1i,#user_birthdate_1i{
+        width: 90px;
+        display: inline;
+    }
+    #account_created_at_2i, #course_created_at_2i, #course_taked_at_2i, #course_completed_at_2i, #book_started_at_2i, #book_finshed_at_2i, #book_created_at_2i,#user_birthdate_2i{
+        width: 122px;
+        display: inline;
+    }
+    #account_created_at_3i, #course_created_at_3i, #course_taked_at_3i, #course_completed_at_3i, #book_started_at_3i, #book_finshed_at_3i, #book_created_at_3i,#user_birthdate_3i{
+        width: 68px;
+        display: inline;
+    }
+
+    #account_account_type_id, #course_course_category_id, #book_course_category_id{
+        width: 151px;
+        display: inline;
+    }
+    #account_type, #course_category, #book_category{
+        width: 219px;
+        display: inline;
+    }
+    #form-submit{
+       float: right;
+        margin-top: 32px;
+        margin-left: 8px;
+    }
+    .modal-content{
+        width: 648px; position: absolute;
+        left: 117px;
+    }
+    .modal-title{text-align: center;}
+    #status{
+        text-align: center;
+        color: #0CB90C;
+        margin-top: 10px;
+    }
+    table{
+        margin: 0 auto;    
+    }
+    #notes{ max-width: 150px; overflow: auto;}
+}

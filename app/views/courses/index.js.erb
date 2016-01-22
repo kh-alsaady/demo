@@ -1,0 +1,27 @@
+//for display select change processing
+<% if @courses.any? %>
+    $("#courses").html("<%= j render partial: 'courses' %>"); 
+<% else %>
+    $("#courses").html("<h3>No Courses Match Your Selecting.</h3>"); 
+<% end %>
+
+//for update course typs when new course category added
+//$("#display").html("");
+//$("#display").append("<option value='all'>All</option>");
+//<% @course_categories.each do |course_cat| %>
+//    $("#display").append("<option value= <%= course_cat[1] %>" + "> <%= course_cat[0] %>" + "</option>");
+//<% end -%>
+
+//for update and create processing
+
+<% if $state == 'create' %>
+    $("#status").html("<h3>The Course Was Successfully Created</h3>");
+    // for create new course without close modal
+    $('.modal-body').html("<%= j render partial: 'form' %>");    
+<% elsif $state == 'update' %>
+    $("#status").html("<h3>The Course Was Successfully Updated</h3>");
+    $('.modal-title').html("Create Course");
+    $('.modal-body').html("<%= j render partial: 'form' %>");
+<% end %>
+
+$("#status").slideDown().delay(3500).slideUp();

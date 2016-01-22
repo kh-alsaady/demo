@@ -1,0 +1,6 @@
+<p>there were <%= pluralize object.errors.size, "error" %> prohipeted this record from been saved the problem were in the following records</p>
+<ul>
+  <% object.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+</ul>

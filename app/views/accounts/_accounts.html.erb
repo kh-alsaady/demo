@@ -1,0 +1,38 @@
+<table class='table  table-condensed table-responsive'>
+    <tr>
+      <th>Account type</th>
+      <th>Username</th>
+      <th>Email</th>
+      <th>Password</th>
+      <th>Other Emails</th>
+      <th>Reason create account</th>
+      <th>Created at</th>
+      <th>Notes</th>
+    </tr>
+  <% @accounts.each do |acc| %>  
+    <tr>
+      <td>
+        <%= acc.type.name if acc.type %>
+        <%= "none" if acc.account_type_id == 0 || acc.account_type_id == nil %>        
+      </td>      
+      <td><%= acc.username %></td>
+      <td><%= acc.email %></td>
+      <td><%= acc.password %></td>
+      <td><%= acc.other_emails %></td>
+      <td><%= acc.reason_create %></td>
+      <td><%= acc.created_at.strftime("%B %d %Y") %></td>
+      <td><div id='notes'><%= acc.notes %></div></td>
+      <td>
+        <div id='actions'>
+            <%= link_to("Show", account_path(acc), class: 'btn btn-info btn-xs', data: {toggle: 'modal', target: '.bs-example-modal-lg', remote: true}) if controller_name != 'Admin' && action_name != 'search' %>
+            <%= link_to "Edit", edit_account_path(acc), class: 'btn btn-success btn-xs', data: {toggle: 'modal', target: '.bs-example-modal-lg',remote: true} if controller_name != 'Admin' && action_name != 'search' %>
+            <%= link_to "Destroy", account_path(acc), class: 'btn btn-danger btn-xs', method: :delete, data: {confirm: "Are you sure ?", remote: true} if controller_name != 'Admin' && action_name != 'search' %>
+        </div>        
+      </td>
+    </tr>    
+  <% end %>
+</table>
+
+
+
+

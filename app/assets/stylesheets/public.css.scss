@@ -1,0 +1,40 @@
+#about-me{
+   margin-top: 5%;
+   margin-left: 5%;
+   margin-bottom: 70px;   
+}
+
+#contact-me{}
+#contact-me-submit input{
+   float: right;
+   min-width: 130px;
+}
+#social-icons{
+   text-align: center;
+   margin-bottom: 41px;
+}
+#site-description{ margin: 30px 30px 0px 30px;}
+#contact-me{margin-top: 50px;}
+.user-info{
+   float: left;
+    border: 1px solid #F5D9D9;
+    max-width: 501px;
+    margin: 30px;
+    padding: 10px;
+    max-height: 501px;
+    background: #F7F4F4;
+    color: #8E8A84;
+    .personal-info{
+      margin: 5px;
+      max-width: 446px;
+      min-height: 85px;
+      //border: 1px solid;
+      overflow: auto;
+      background: #F7F1F1;
+      color: #1B1B1A;
+    }
+    .site-info{float: right; margin: 30px;
+}
+    img{margin-right: 5px;}
+}
+#nav-user-img{margin-left: 10px;}

@@ -1,0 +1,6 @@
+//for display select change processing
+<% if @users.any? %>
+    $("#users").html("<%= j render partial: 'users' %>"); 
+<% else %>
+    $("#users").html("<h3>No Users Match Your Selecting.</h3>"); 
+<% end %>

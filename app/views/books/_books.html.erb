@@ -1,0 +1,37 @@
+<table class='table table-condensed table-responsive'>
+    <tr>
+      <th>Book Category</th>
+      <th>Title</th>      
+      <th>Completed</th>
+      <th>Started At</th>
+      <th>Completed At</th>
+      <th>Created at</th>
+      <th>Notes</th>
+    </tr>
+  <% @books.each do |book| %>  
+    <tr>
+      <td>
+        <%= book.category.name if book.category %>
+        <%= "None" if book.course_category_id == 0 || book.course_category_id == nil %>        
+      </td>      
+      <td><%= book.title %></td>      
+      <td><%= book.completed ? "YES" : "NO" %></td>
+      <td><%= book.started_at.strftime("%d %B %Y") %></td>
+      <td><%= book.finshed_at.strftime("%d %B %Y") %></td>
+      <td><%= book.created_at.strftime("%d %B %Y") %></td>
+      <td><div id='notes'><%= book.notes %></div></td>
+      <td>
+        <div id='actions'>
+            <%= link_to "Preview", book_path(book), class: 'btn btn-info btn-xs', data: {toggle: 'modal', target: '.bs-example-modal-lg',remote: true} if controller_name != 'Admin' && action_name != 'search' %>
+            <%= link_to "Edit", edit_book_path(book), class: 'btn btn-success btn-xs', data: {toggle: 'modal', target: '.bs-example-modal-lg',remote: true} if controller_name != 'Admin' && action_name != 'search' %>
+            <%= link_to "Destroy", book_path(book), class: 'btn btn-danger btn-xs', method: :delete, data: {confirm: "Are you sure ?", remote: true} if controller_name != 'Admin' && action_name != 'search' %>
+        </div>        
+      </td>
+    </tr>    
+  <% end %>
+</table>
+
+
+
+
+

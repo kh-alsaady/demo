@@ -1,0 +1,58 @@
+<!--Need------@user, @roles-->
+
+<%= error_message_for @user if @user.errors.any? %>
+
+<%= form_for @user, html: {multipart: true} do |f| %>
+ <!-- <div id='frm-user-img'>    
+    <%= image_tag '',size: '150x120', alt: 'Image Not found' %>
+  </div>-->
+  <!--<%= file_field_tag :image_path %>-->
+  <table class='table-condensed' id='tbl-new-user'>    
+    <tr>
+      <td><%= f.label :first_name %></td>
+      <td><%= f.text_field :first_name, size: 50, class: 'form-control' %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :last_name %></td>
+      <td><%= f.text_field :last_name, size: 50, class: 'form-control' %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :display_name %></td>
+      <td><%= f.text_field :display_name, size: 50, class: 'form-control' %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :birthdate %></td>
+      <td><%= f.date_select :birthdate, {size: 50}, class: 'form-control' %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :username %></td>
+      <td><%= f.text_field :username, size: 50, class: 'form-control' %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :email %></td>
+      <td><%= f.email_field :email, size: 50, class: 'form-control' %></td>
+    </tr>
+    <% if action_name == 'new' %>
+      <tr>
+      <td><%= f.label :password %></td>
+      <td>
+        <%= f.password_field :password, size: 50, class: 'form-control' %>
+        <%= check_box_tag :show_password, nil, false, class: 'show_password' %> Show password
+      </td>
+    </tr>
+    <tr>
+      <td><%= f.label :password_confirmation %></td>
+      <td>
+        <%= f.password_field :password_confirmation, size: 50, class: 'form-control' %>
+        <%= check_box_tag :show_password, nil, false, class: 'show_password' %> Show password  
+      </td>
+    </tr>
+    <% end %>    
+    <tr>
+      <td><%= f.label :description %></td>
+      <td><%= f.text_area :description, size: '50x2', class: 'form-control' %></td>
+    </tr>    
+  </table>
+  
+  <div id='frm-user-submit'><%= f.submit( (params[:id] ? "Save Changes" : "Create New User"),  class: 'btn btn-success') %></div>
+<% end -%>

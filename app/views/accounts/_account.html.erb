@@ -1,0 +1,34 @@
+<table class= 'table table-bordered table-condensed account-show-tbl'>
+  <tr>
+    <th>Account Type</th>
+    <td><%= account.type ? account.type.name : "None" %></td></td>
+  </tr>
+  <tr>
+    <th>Username</th>
+    <td><%= account.username %></td></td>
+  </tr>
+  <tr>
+    <th>Email</th>
+    <td><%= account.email %></td>
+  </tr>
+  <tr>
+    <th>Password</th>
+    <td><%= account.password %></td>
+  </tr>
+  <tr>
+    <th>Other Emails</th>
+    <td><%= account.other_emails %></td>
+  </tr>
+  <tr>
+    <th>Reason creating </th>
+    <td><%= account.reason_create %></td>
+  </tr>
+  <tr>
+    <th>Created at</th>
+    <td><%= account.created_at.strftime("%B %d %Y") %></td>
+  </tr>
+  <tr>
+    <th>Notes</th>
+    <td><%= account.notes %></td>
+  </tr>
+</table>

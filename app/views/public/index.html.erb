@@ -1,0 +1,38 @@
+<div class='row'>
+  <div class='col'>
+    <p id='site-description'>
+      <h2>My Site:</h2>
+      My Site is a website developed by "Khalid Alsaadi" especially for you to organize your personal accounts you have registered
+      on different websites,so you can easly and quickly access them any time and keep them from forgetting.
+      Also you can keep tracks for what books and courses you took, so you can write your CV easly.
+      so please contact me in case of any notes or any bugs you had in the website.
+    </p>
+  </div>
+</div>
+
+<div class='row'>  
+    <h2>Current Users</h2>
+    
+    <% if @users.any? %>
+    <% @users.each do |user| %>
+      <div class='user-info'>
+         <%= image_tag 'user.png', size: '200x200', alt: user.name %>          
+        <div class='site-info'>
+          <%= pluralize user.courses.count, 'Course' %> <br>
+          <%= pluralize user.books.count, 'Book' %> <br>
+          <%= pluralize user.accounts.count, 'Account' %><br><br/>
+          <%=  user.created_at.strftime("Joined at %B %Y") %><br><br>
+        </div>
+         <div class='personal-info'>          
+          <%= user.name %><br/>
+          Birthdate <%= user.birthdate %><br/>
+          <%= user.description %><br>
+        </div>
+          <!--<div class='clear'></div>-->
+      </div>
+    <% end -%>
+    <% else %>
+      <h3>No Users Available.</h3>
+    <% end %>    
+  
+</div>

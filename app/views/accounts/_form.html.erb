@@ -1,0 +1,43 @@
+<%= error_message_for @account if @account.errors.any? %>
+
+<%= form_for @account, remote: true do |f| %>
+  <table class='table-condensed'>
+    <tr>
+      <th><%= f.label :username %></th>
+      <td> <%= f.text_field :username, size: 50, class: 'form-control' %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :email %></th>
+      <td><%= f.email_field :email, size: 50, class: 'form-control' %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :password %></th>
+      <td><%= f.password_field :password, size: 50, class: 'form-control' %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :account_type_id, "Account Type" %></th>
+      <td>
+        <%= f.select(:account_type_id, [["none", 0]] + @account_types , {}, {class: "form-control"}) %> 
+        New <%= text_field_tag(:account_type, nil, size: 30, class: 'form-control') %>
+      </td>
+    </tr>    
+      
+    <tr>
+      <th><%= f.label :other_emails%></th>
+      <td><%= f.text_area :other_emails, size: '47x3', class: 'form-control' %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :reason_create, "Reason create this account" %></th>
+      <td><%= f.text_field :reason_create, size: 50, class: 'form-control' %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :created_at %></th>
+      <td><%= f.date_select :created_at, {}, {class: 'form-control'} %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :notes %></th>
+      <td> <%= f.text_area :notes, size: '47x3', class: 'form-control' %></td>
+    </tr>    
+  </table>
+  <div id='form-submit'><%= f.submit(@account.id ? "Update Account" : "Create Account", {class: 'btn btn-primary'}) %></div>
+<% end %>

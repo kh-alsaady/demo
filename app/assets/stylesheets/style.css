@@ -1,0 +1,17 @@
+.navbar-default{background: #46629D;}
+.navbar-default li{color: #fff;}
+.main-container{min-height: 558px; padding: 20px;}
+.navbar-default .navbar-brand{color: #FFF}
+.navbar-default .navbar-nav>li>a{color: #FFF}
+.btn-search{color: #46629D}
+.account-show-tbl{width: 70%;}
+.display-select{ display:  inline;width: auto;}
+#footer{
+    padding-top: 9px;min-height: 40px;background: #46629D;text-align: center ;
+    width: 100%;color: #fff;font-style: italic
+}
+.white{color: #fff;}
+#left-nav{
+  margin-left: 145px;
+}
+/*.row, .col{padding: 0px; margin: 0px;}*/

@@ -1,0 +1,30 @@
+<table class= 'table table-bordered table-condensed book-show-tbl'>
+  <tr>
+    <th>Book Category</th>
+    <td><%= book.category ? book.category.name : "None" %></td></td>
+  </tr>
+  <tr>
+    <th>Title</th>
+    <td><%= book.title %></td></td>
+  </tr>
+  <tr>
+    <th>Completed</th>
+    <td><%= book.completed ? 'YES' : 'NO' %></td>
+  </tr>
+  <tr>
+    <th>Started At</th>
+    <td><%= book.started_at.strftime("%d %B %Y") %></td>
+  </tr>
+  <tr>
+    <th>Completed At </th>
+    <td><%= book.finshed_at.strftime("%d %B %Y") %></td>
+  </tr>
+  <tr>
+    <th>Created at</th>
+    <td><%= book.created_at.strftime("%d %B %Y") %></td>
+  </tr>
+  <tr>
+    <th>Notes</th>
+    <td><%= book.notes %></td>
+  </tr>
+</table>

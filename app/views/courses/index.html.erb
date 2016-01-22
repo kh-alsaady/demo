@@ -1,0 +1,12 @@
+<h1>My Courses</h1>
+
+<div><b>Display </b><%= select_tag(:display, options_for_select([['All', 'all']] + @user_course_categories), class: "form-control display-select") %></div> <br />  
+
+<div id='result-display'>
+  <div id='courses'><%= @courses.any? ? render(partial: 'courses') : "No Courses Available." %></div>  
+</div>
+<br/><br/>
+
+<div><%= link_to "Create New Course", new_course_path, class: 'btn btn-primary', data: {toggle: 'modal', target: '.bs-example-modal-lg', remote: true} %></div>
+
+

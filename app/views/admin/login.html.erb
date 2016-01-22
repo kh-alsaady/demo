@@ -1,0 +1,29 @@
+<div class='row'>  
+  <div class='col col-lg-2 col-md-2 col-sm-3'></div>
+
+  <div class='col col-lg-8 col-md-8 col-sm-6'>
+    <h2>Login</h2>
+    <div class = 'login-form'>
+      <%= form_tag(login_path) do %>
+        <table class='table-responsive table-condensed'>    
+          <tr>        
+            <td><%=  text_field_tag(:username, params[:username], size: 40, placeholder: 'Enter Username',  class: 'form-control') %></td>
+          </tr>
+          <tr>        
+            <td>
+              <%=  password_field_tag(:password, nil, size: 40, placeholder: 'Enter Password',  class: 'form-control') %>
+              <%= check_box_tag :show_password, nil, false, class: 'show_password' %> Show password  
+            </td
+          </tr>      
+        </table>
+        <div id='login-submit'>
+            <%= submit_tag("login", class: 'btn btn-primary btn-lg',    id: 'btn-login') %>
+            <%= link_to "Register", new_user_path, class: 'btn btn-primary btn-lg', id: 'btn-register' %>
+        </div> 
+      <%  end -%>
+    </div>
+  </div>
+
+<div class='col col-lg-2 col-md-2 col-sm-3'></div>
+</div>
+

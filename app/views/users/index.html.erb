@@ -1,0 +1,23 @@
+<h1>Current Users</h1>
+
+<div>
+    <b>Display </b>
+    <%= radio_button_tag :display, 'all', checked: true %> All
+    <%= radio_button_tag :display, 'admin'              %> Admin
+    <%= radio_button_tag :display, 'user'               %> User
+</div><br />
+
+<%= form_tag(set_role_users_path) do %>
+  
+  <div id='users'>
+    <%= @users.any? ? render(partial: 'users') : "No Users Available." %>  
+  </div>
+  
+  <br/><br/>
+  
+  <div>
+    <b>Mark Selected Users As</b> <%= submit_tag "User", class: 'btn btn-primary' %>
+    <%= submit_tag "Admin", class: 'btn btn-success' %>
+  </div>
+<% end -%>
+
