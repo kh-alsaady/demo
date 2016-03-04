@@ -4,6 +4,10 @@ class User < ActiveRecord::Base
   has_many :accounts, dependent: :destroy
   has_many :books, dependent: :destroy
   
+  # for paperclip support
+  has_attached_file :image, styles: { small: '150x150'}, default_url: 'images/user.png'
+  do_not_validate_attachment_file_type :image
+  
   attr_accessor  :password
   
   before_create :before_create

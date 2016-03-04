@@ -3,9 +3,9 @@ class CoursesController < ApplicationController
   before_action :set_course_categories, only: [:new, :edit, :index, :display]
   
   def index
-    #for add new course using ajax processing
+    #for add new course using ajax 
     @course = Course.new    
-    #for index processsing
+    
     display = params[:display] || 'all'
                         
     @courses = (display == 'all') ? Course.where(user_id: session[:user_id]).order("updated_at DESC") :

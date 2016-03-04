@@ -17,15 +17,14 @@
 //for update and create processing
 
 <% if $state == 'create' %>
-    $("#status").html("<h3>The Account Was Successfully Created</h3>");
+    toastr.success('The account has been Successfully created') ;
     // for create new account without close modal
     $('.modal-body').html("<%= j render partial: 'form' %>");    
 <% elsif $state == 'update' %>
-    $("#status").html("<h3>The Account Was Successfully Updated</h3>");
+    toastr.success('The account has been Successfully Updated') ;    
     $('.modal-title').html("Create Account");
     $('.modal-body').html("<%= j render partial: 'form' %>");
 <% end %>
 
-$("#status").slideDown().delay(3500).slideUp();
 
 

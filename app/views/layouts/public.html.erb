@@ -38,10 +38,20 @@
  
  <div class="main-container container">
     <div id='notice'></div>
-    <% if flash[:notice] %>        
+   <!-- <% if flash[:notice] %>        
         <%= javascript_tag do %>
           $("#notice").html("<h3><%= flash[:notice] %></h3>").slideDown().delay(3500).slideUp();
         <% end %>      
+    <% end %>
+    -->
+    <% unless flash.empty? %>
+      <% flash.each do |type, msg| %>
+        <% if ['success', 'warning', 'error', 'info'].include? type.to_s %>          
+          <%= javascript_tag "toastr.#{type}('#{msg}');" %>
+        <% else %>
+          <%= javascript_tag "toastr.info('#{msg}');" %>  
+        <% end %>                
+      <% end %>
     <% end %>
     
     <%= yield %>

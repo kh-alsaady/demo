@@ -14,13 +14,13 @@ class AdminController < ApplicationController
       if found_user
         #mark  user as loggedin
         session[:user_id] = found_user.id        
-        redirect_to accounts_path, notice: 'You Logged In Successfully'
+        redirect_to accounts_path, success: 'You Logged In Successfully'
       else
-        flash[:notice] = 'Username And Password Combination were Invalid'
+        flash[:error] = 'Username And Password Combination were Invalid'
         render 'login', layout: 'public'
       end      
     else
-      flash[:notice] = 'Enter Username and Password First'
+      flash[:info] = 'Enter Username and Password First'
       render 'login', layout: 'public'
     end
     

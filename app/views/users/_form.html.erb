@@ -1,13 +1,15 @@
-<!--Need------@user, @roles-->
-
 <%= error_message_for @user if @user.errors.any? %>
 
 <%= form_for @user, html: {multipart: true} do |f| %>
- <!-- <div id='frm-user-img'>    
-    <%= image_tag '',size: '150x120', alt: 'Image Not found' %>
-  </div>-->
-  <!--<%= file_field_tag :image_path %>-->
-  <table class='table-condensed' id='tbl-new-user'>    
+  <div class='col-lg-2 col-md-2 '>    
+    <%= image_tag @user.image? ? @user.image.url : 'user.png' , size: '150x150', alt: 'Image Not found' %><br /><br />    
+    <%= f.file_field :image %>
+    <%= link_to 'Browse..', '#', id: 'users_image', class: 'btn btn-default btn-block' %>
+  </div>
+  
+  <div class='col col-lg-8 col-md-8 '>    
+    <div id='user-details'>              
+      <table class='table-condensed' id='tbl-new-user'>    
     <tr>
       <td><%= f.label :first_name %></td>
       <td><%= f.text_field :first_name, size: 50, class: 'form-control' %></td>
@@ -36,15 +38,13 @@
       <tr>
       <td><%= f.label :password %></td>
       <td>
-        <%= f.password_field :password, size: 50, class: 'form-control' %>
-        <%= check_box_tag :show_password, nil, false, class: 'show_password' %> Show password
+        <%= f.password_field :password, size: 50, class: 'form-control' %>        
       </td>
     </tr>
     <tr>
       <td><%= f.label :password_confirmation %></td>
       <td>
-        <%= f.password_field :password_confirmation, size: 50, class: 'form-control' %>
-        <%= check_box_tag :show_password, nil, false, class: 'show_password' %> Show password  
+        <%= f.password_field :password_confirmation, size: 50, class: 'form-control' %>        
       </td>
     </tr>
     <% end %>    
@@ -52,7 +52,10 @@
       <td><%= f.label :description %></td>
       <td><%= f.text_area :description, size: '50x2', class: 'form-control' %></td>
     </tr>    
-  </table>
-  
-  <div id='frm-user-submit'><%= f.submit( (params[:id] ? "Save Changes" : "Create New User"),  class: 'btn btn-success') %></div>
+  </table> 
+    </div>
+  </div>
+   
+  <div id='frm-user-submit'><%= f.submit( (@user.new_record? ? "Create New User" : "Save Changes"),  class: 'btn btn-success') %></div>
+
 <% end -%>

@@ -15,10 +15,11 @@
 //= require turbolinks
 //= require bootstrap.min
 //= require_tree .
+//= require toastr
 //= require_self
 
 
-$(document).ready(function(){
+$(document).on('ready page:load', function(){
     
     function showPassword(passwordField){
         //id name type size class

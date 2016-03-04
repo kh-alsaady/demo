@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151214135707) do
+ActiveRecord::Schema.define(version: 20160303190357) do
 
   create_table "account_types", force: true do |t|
     t.string   "name"
@@ -78,11 +78,14 @@ ActiveRecord::Schema.define(version: 20151214135707) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "display_name"
-    t.string   "image"
     t.text     "description"
     t.date     "birthdate"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
 end

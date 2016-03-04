@@ -74,11 +74,22 @@
  
  <div class="main-container">
     <div id='notice'></div>
-    <% if flash[:notice] %>        
+    <!--<% if flash[:notice] %>        
         <%= javascript_tag do %>
           $("#notice").html("<h3><%= flash[:notice] %></h3>").slideDown().delay(3500).slideUp();
         <% end %>      
+    <% end %>-->
+    
+    <% unless flash.empty? %>
+      <% flash.each do |type, msg| %>
+        <% if ['success', 'warning', 'error', 'info'].include? type.to_s %>          
+          <%= javascript_tag "toastr.#{type}('#{msg}');" %>
+        <% else %>
+          <%= javascript_tag "toastr.info('#{msg}');" %>  
+        <% end %>                
+      <% end %>
     <% end %>
+    
     <div id='main-row' class='row'>
       <div class='col-lg-2'>
         <%= render(partial: 'application/sidebar')  %>
@@ -92,6 +103,6 @@
  </div>
  
  <div id='footer'> copyright 23/11/2015 </div>   
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>    
+  
 </body>
 </html>
