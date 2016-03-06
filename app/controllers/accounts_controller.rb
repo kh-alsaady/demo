@@ -3,10 +3,9 @@ class AccountsController < ApplicationController
   before_action :set_account_types, only: [:new, :edit, :index, :display]
   
   def index
-    #for add new account using ajax processing
+    #for add new account using ajax 
     @account = Account.new
     
-    #for index processsing
     display = params[:display] || 'all'
                         
     @accounts = (display == 'all') ? Account.where(user_id: session[:user_id]).order("updated_at DESC") :
@@ -35,8 +34,9 @@ class AccountsController < ApplicationController
     @account.type    = AccountType.new(name: params[:account_type]) if params[:account_type].present?
     
     if @account.save
+      flash[:success] = 'The account has been Successfully created'
       redirect_to accounts_path
-      $state = 'create'
+      #$state = 'create'
     else
       set_account_types
       render 'new'  
@@ -58,9 +58,10 @@ class AccountsController < ApplicationController
         updated_params_account.delete('account_type_id')
     end
         
-    if @account.update(updated_params_account)    
+    if @account.update(updated_params_account)
+      flash[:success] = 'The account has been Successfully updated'
       redirect_to accounts_path
-      $state = 'update'
+      #$state = 'update'
     else
       set_account_types
       render 'edit'  

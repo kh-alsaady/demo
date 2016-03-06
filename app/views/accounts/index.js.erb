@@ -1,30 +1,12 @@
-//for display select change processing
+// display accounts
 <% if @accounts.any? %>
     $("#accounts").html("<%= j render partial: 'accounts' %>"); 
 <% else %>
     $("#accounts").html("<h3>No Accounts Match Your Selecting.</h3>"); 
 <% end %>
 
-//for update account typs when new account type added
-//$("#display").html("");
-//$("#display").append("<option value='all'>All</option>");
-//<% @user_account_types.each do |acc_type| %>
-//  $("#display").append("<option value= <%= acc_type[1] %>" + "> <%= acc_type[0] %>" + "</option>");
-//<% end -%>
-
-
-
-//for update and create processing
-
-<% if $state == 'create' %>
-    toastr.success('The account has been Successfully created') ;
-    // for create new account without close modal
-    $('.modal-body').html("<%= j render partial: 'form' %>");    
-<% elsif $state == 'update' %>
-    toastr.success('The account has been Successfully Updated') ;    
-    $('.modal-title').html("Create Account");
-    $('.modal-body').html("<%= j render partial: 'form' %>");
-<% end %>
+toastr.success('<%= flash[:success] %>') ;
+$('.modal').modal('hide');
 
 
 

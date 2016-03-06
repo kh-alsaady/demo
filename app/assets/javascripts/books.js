@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).on('ready page:load', function(){
     //for display by type s
     $('#display').change(function(){
         var display = $('#display').val();
